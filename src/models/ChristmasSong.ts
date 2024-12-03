@@ -7,7 +7,7 @@ const ChristmasSongSchema = new mongoose.Schema(
     youtube: String,
   },
   {
-    collection: 'test.songs',
+    collection: 'songs',
   }
 );
 
