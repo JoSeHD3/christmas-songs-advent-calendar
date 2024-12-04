@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer';
 import Main from '@/components/Main';
 import { Toaster } from '@/components/ui/toaster';
 
@@ -19,7 +20,7 @@ const Home = () => {
         <Main />
       </main>
       <footer className='bg-red-900'>
-        <p>content of footer</p>
+        <Footer />
       </footer>
       <Toaster />
     </div>
