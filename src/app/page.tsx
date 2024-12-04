@@ -9,8 +9,10 @@ const Home = () => {
         backgroundAttachment: 'fixed',
       }}
     >
-      <header className='bg-gray-700'>
-        <p>content of header</p>
+      <header className='bg-gray-700 flex justify-center'>
+        <p className='lg:text-7xl md:text-5xl sm: text-3xl font-bold'>
+          ROLL YOUR CHRISTMAS SONG
+        </p>
       </header>
       <main className='bg-red-900 bg-transparent h-full w-full p-12'>
         <Main />
