@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
 import Main from '@/components/Main';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from '@/components/ui';
 
 const Home = () => {
   return (
