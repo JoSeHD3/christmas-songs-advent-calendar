@@ -16,12 +16,8 @@ const Home = () => {
           ROLL YOUR XMAS SONG
         </p>
       </header>
-      <main className='bg-red-900 bg-transparent h-full w-full p-12'>
-        <Main />
-      </main>
-      <footer className='bg-red-900'>
-        <Footer />
-      </footer>
+      <Main />
+      <Footer />
       <Toaster />
     </div>
   );
