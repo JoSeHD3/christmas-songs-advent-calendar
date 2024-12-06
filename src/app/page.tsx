@@ -1,21 +1,18 @@
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import Main from '@/components/Main';
 import { Toaster } from '@/components/ui';
 
 const Home = () => {
   return (
     <div
-      className='bg-cover bg-center'
+      className='bg-cover bg-center relative'
       style={{
         backgroundImage: "url('https://wallpapercave.com/wp/wp7958855.jpg')",
         backgroundAttachment: 'fixed',
       }}
     >
-      <header className='bg-gray-700 flex justify-center'>
-        <p className='lg:text-7xl md:text-5xl sm: text-3xl font-bold'>
-          ROLL YOUR XMAS SONG
-        </p>
-      </header>
+      <Header />
       <Main />
       <Footer />
       <Toaster />

@@ -43,7 +43,7 @@ const AdventCard = ({ index, song }: { index: number; song: Song }) => {
 
   return (
     <div
-      className='min-w-64 min-h-48 text-white bg-red-900/85 rounded border-4 border-dashed border-gray-500 flex items-center justify-center hover:shadow-lg hover:scale-105 transition-transform duration-300'
+      className='min-w-64 min-h-48 text-white bg-red-900/85 rounded border-4 border-dashed border-gray-500 flex items-center justify-center hover:scale-105 transition-transform duration-300'
       onClick={handleClick}
     >
       {isRevealed && isUnlocked ? (

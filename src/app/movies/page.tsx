@@ -1,11 +1,10 @@
-import Button from '@/components/Button';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 const Page = () => {
   return (
     <>
-      <p>YOU ARE ON MOVIES PAGE</p>
-      <Button />
+      <Header />
       <Footer />
     </>
   );
