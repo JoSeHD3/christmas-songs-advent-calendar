@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Main from '@/components/Main';
 import { Toaster } from '@/components/ui';
+import { Song } from '@/utils/interfaces';
 
 const Home = () => {
   return (
@@ -13,7 +14,11 @@ const Home = () => {
       }}
     >
       <Header />
-      <Main />
+      <Main<Song>
+        apiEndpoint='/api/getRandomSongs'
+        storageKey='songs'
+        cardStorageKey='openedCards'
+      />
       <Footer />
       <Toaster />
     </div>

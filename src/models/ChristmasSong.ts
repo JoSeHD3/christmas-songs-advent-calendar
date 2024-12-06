@@ -11,8 +11,6 @@ const ChristmasSongSchema = new mongoose.Schema(
   }
 );
 
-const ChristmasSong =
+export const ChristmasSong =
   mongoose.models.ChristmasSong ||
   mongoose.model('ChristmasSong', ChristmasSongSchema);
-
-export default ChristmasSong;

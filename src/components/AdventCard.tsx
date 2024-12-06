@@ -1,10 +1,17 @@
 'use client';
 
-import { toast } from '@/hooks/use-toast';
-import { Song } from '@/utils/interfaces';
 import { useEffect, useState } from 'react';
+import { toast } from '@/hooks/use-toast';
 
-const AdventCard = ({ index, song }: { index: number; song: Song }) => {
+const AdventCard = <T extends { id: number; name: string; youtube: string }>({
+  index,
+  item,
+  storageKey,
+}: {
+  index: number;
+  item: T;
+  storageKey: string;
+}) => {
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
   const [isOpened, setIsOpened] = useState<boolean>(false);
 
@@ -17,11 +24,9 @@ const AdventCard = ({ index, song }: { index: number; song: Song }) => {
       setIsRevealed(true);
       setIsOpened(true);
 
-      const openedCards = JSON.parse(
-        localStorage.getItem('openedCards') || '[]'
-      );
+      const openedCards = JSON.parse(localStorage.getItem(storageKey) || '[]');
       localStorage.setItem(
-        'openedCards',
+        storageKey,
         JSON.stringify([...openedCards, index + 1])
       );
     } else if (!isUnlocked && !isOpened) {
@@ -34,12 +39,12 @@ const AdventCard = ({ index, song }: { index: number; song: Song }) => {
   };
 
   useEffect(() => {
-    const openedCards = JSON.parse(localStorage.getItem('openedCards') || '[]');
+    const openedCards = JSON.parse(localStorage.getItem(storageKey) || '[]');
     if (openedCards.includes(index + 1)) {
       setIsOpened(true);
       setIsRevealed(true);
     }
-  }, [index]);
+  }, [index, storageKey]);
 
   return (
     <div
@@ -48,10 +53,10 @@ const AdventCard = ({ index, song }: { index: number; song: Song }) => {
     >
       {isRevealed && isUnlocked ? (
         <div className='text-center'>
-          <p className='font-bold'>{song.name}</p>
+          <p className='font-bold'>{item.name}</p>
           <iframe
             className='w-full'
-            src={`https://www.youtube.com/embed/${new URL(song.youtube).searchParams.get('v')}`}
+            src={`https://www.youtube.com/embed/${new URL(item.youtube).searchParams.get('v')}`}
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowFullScreen
           ></iframe>

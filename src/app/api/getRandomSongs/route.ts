@@ -1,5 +1,5 @@
 import dbConnect from '@/utils/dbConnect';
-import ChristmasSong from '@/models/ChristmasSong';
+import { ChristmasSong } from '@/models';
 
 export async function GET() {
   await dbConnect();
