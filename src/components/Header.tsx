@@ -7,19 +7,19 @@ const Header = () => {
       <ShadcnButton
         variant='ghost'
         asChild
-        className='m-2 hover:bg-gray-500 rounded'
+        className='m-2 hover:bg-gray-500 rounded xl:text-2xl lg:text-2xl md:text-2xl sm:text-xl'
       >
         <Link href='/'>
-          <p className='text-white text-2xl'>Songs calendar</p>
+          <p className='text-white'>Songs calendar</p>
         </Link>
       </ShadcnButton>
       <ShadcnButton
         variant='ghost'
         asChild
-        className='m-2 hover:bg-gray-500 rounded'
+        className='m-2 hover:bg-gray-500 rounded xl:text-2xl lg:text-2xl md:text-2xl sm:text-xl'
       >
         <Link href='/movies'>
-          <p className='text-white text-2xl'>Movies calendar</p>
+          <p className='text-white'>Movies calendar</p>
         </Link>
       </ShadcnButton>
     </header>

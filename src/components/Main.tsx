@@ -29,7 +29,7 @@ const Main = <T extends { id: number; name: string; youtube: string }>({
         })
         .catch((e) => console.error('Error fetching items: ', e));
     }
-  }, []);
+  }, [apiEndpoint, storageKey]);
 
   return (
     <main className='flex justify-center items-center min-h-screen bg-red-900 bg-transparent h-full w-full p-12'>

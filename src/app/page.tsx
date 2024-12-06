@@ -20,7 +20,6 @@ const Home = () => {
         cardStorageKey='openedCards'
       />
       <Footer />
-      <Toaster />
     </div>
   );
 };
