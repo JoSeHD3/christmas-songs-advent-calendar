@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { toast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
 
 const AdventCard = <T extends { id: number; name: string; youtube: string }>({
   index,
@@ -14,6 +15,7 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
 }) => {
   const [isRevealed, setIsRevealed] = useState<boolean>(false);
   const [isOpened, setIsOpened] = useState<boolean>(false);
+  const [backfaceFlag, setbackfaceFlag] = useState<boolean>(false);
 
   const today = new Date();
   const currentDay = today.getMonth() == 11 ? today.getDate() : 0;
@@ -29,6 +31,10 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
         storageKey,
         JSON.stringify([...openedCards, index + 1])
       );
+
+      setTimeout(() => {
+        setbackfaceFlag(true);
+      }, 150);
     } else if (!isUnlocked && !isOpened) {
       toast({
         variant: 'destructive',
@@ -43,27 +49,42 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
     if (openedCards.includes(index + 1)) {
       setIsOpened(true);
       setIsRevealed(true);
+      setbackfaceFlag(true);
     }
   }, [index, storageKey]);
 
   return (
-    <div
-      className='min-w-64 min-h-48 text-white bg-red-900/85 rounded border-4 border-dashed border-gray-500 flex items-center justify-center hover:scale-105 transition-transform duration-300'
-      onClick={handleClick}
-    >
-      {isRevealed && isUnlocked ? (
-        <div className='text-center'>
-          <p className='font-bold'>{item.name}</p>
-          <iframe
-            className='w-full'
-            src={`https://www.youtube.com/embed/${new URL(item.youtube).searchParams.get('v')}`}
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-            allowFullScreen
-          ></iframe>
+    <div className='group flex w-full h-48' onClick={handleClick}>
+      <div
+        className={`relative w-full h-full transition-transform duration-500 transform ${
+          isRevealed && isUnlocked ? '[transform:rotateY(180deg)]' : ''
+        }`}
+      >
+        {/* Front Side of the Card */}
+        {!backfaceFlag && (
+          <div className='absolute w-full h-full bg-red-800/80 text-white flex items-center justify-center rounded-lg z-10'>
+            <p className='text-3xl font-bold'>{index + 1}</p>
+          </div>
+        )}
+
+        {/* Back Side of the Card */}
+        <div
+          className={cn(
+            'absolute w-full h-full bg-red-800/100 text-white flex flex-col items-center justify-center rounded-lg [transform:rotateY(180deg)] z-20',
+            !backfaceFlag && '[backface-visibility:hidden]'
+          )}
+        >
+          <p className='font-bold text-lg'>{item.name}</p>
+          {item.youtube && (
+            <iframe
+              className='w-52 h-28 mt-2'
+              src={`https://www.youtube.com/embed/${new URL(item.youtube).searchParams.get('v')}`}
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              allowFullScreen
+            ></iframe>
+          )}
         </div>
-      ) : (
-        <p className='text-6xl font-bold'>{index + 1}</p>
-      )}
+      </div>
     </div>
   );
 };
