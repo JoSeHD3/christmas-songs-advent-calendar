@@ -77,7 +77,10 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
           <p className='font-bold text-lg'>{item.name}</p>
           {item.youtube && (
             <iframe
-              className='w-52 h-28 mt-2'
+              className={cn(
+                'w-52 h-28 mt-2',
+                !backfaceFlag ? '[pointer-events:none]' : '[pointer-events:all]'
+              )}
               src={`https://www.youtube.com/embed/${new URL(item.youtube).searchParams.get('v')}`}
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen

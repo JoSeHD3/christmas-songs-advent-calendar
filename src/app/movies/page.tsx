@@ -8,7 +8,8 @@ const Page = () => {
     <div
       className='bg-cover bg-center relative'
       style={{
-        backgroundImage: "url('https://wallpapercave.com/wp/wp7958855.jpg')",
+        backgroundImage:
+          "url('https://w.wallhaven.cc/full/d5/wallhaven-d5pxzo.jpg')",
         backgroundAttachment: 'fixed',
       }}
     >
