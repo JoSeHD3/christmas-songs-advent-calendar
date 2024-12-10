@@ -63,7 +63,7 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
         {/* Front Side of the Card */}
         {!backfaceFlag && (
           <div className='absolute w-full h-full bg-red-800/80 text-white flex items-center justify-center rounded-lg z-10'>
-            <p className='text-3xl font-bold'>{index + 1}</p>
+            <p className='text-6xl font-bold'>{index + 1}</p>
           </div>
         )}
 
