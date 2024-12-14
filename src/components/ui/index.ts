@@ -15,3 +15,4 @@ export {
   ToastClose,
   ToastAction,
 } from './toast';
+export { Separator } from './separator';
