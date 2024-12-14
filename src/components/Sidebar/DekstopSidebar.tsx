@@ -2,6 +2,7 @@ import useSidebarStore from '@/utils/sidebarStore';
 import { Separator, ShadcnButton } from '../ui';
 import { ChevronLeft, ChevronRight, House } from 'lucide-react';
 import { SidebarItem } from './SidebarItem';
+import { sidebarItems as items } from './sidebarItems';
 
 const DesktopSidebar = () => {
   const { isExpanded, toggleSidebar } = useSidebarStore();
@@ -23,11 +24,14 @@ const DesktopSidebar = () => {
             {isExpanded ? <ChevronLeft /> : <ChevronRight />}
           </ShadcnButton>
           <Separator className='w-full' />
-          <SidebarItem
-            icon={House}
-            action={() => console.log('button clicked')}
-            text='Main Page'
-          />
+          {items.map((item, index) => (
+            <SidebarItem
+              icon={item.icon}
+              href={item.href}
+              text={item.text}
+              key={index}
+            />
+          ))}
         </div>
       </div>
     </aside>
