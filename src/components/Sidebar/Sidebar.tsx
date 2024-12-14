@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { DesktopSidebar } from './DekstopSidebar';
+import { MobileSidebar } from './MobileSidebar';
 
 const Sidebar = () => {
   const [mobile, setMobile] = useState<boolean>();
@@ -20,7 +21,7 @@ const Sidebar = () => {
 
   return typeof mobile !== 'undefined' ? (
     mobile ? (
-      <p>Widok mobilny</p>
+      <MobileSidebar />
     ) : (
       <DesktopSidebar />
     )

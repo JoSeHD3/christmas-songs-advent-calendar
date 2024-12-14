@@ -13,7 +13,6 @@ const Page = () => {
         backgroundAttachment: 'fixed',
       }}
     >
-      <Header />
       <Main<Movie>
         apiEndpoint='/api/getRandomMovies'
         storageKey='movies'

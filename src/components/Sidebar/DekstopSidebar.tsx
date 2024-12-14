@@ -1,5 +1,5 @@
 import useSidebarStore from '@/utils/sidebarStore';
-import { Separator, ShadcnButton } from '../ui';
+import { Separator, ShadcnButton } from '@/components/ui';
 import { ChevronLeft, ChevronRight, House } from 'lucide-react';
 import { SidebarItem } from './SidebarItem';
 import { sidebarItems as items } from './sidebarItems';
@@ -11,9 +11,9 @@ const DesktopSidebar = () => {
     <aside
       className={`sticky top-0 left-0 h-full ${
         isExpanded ? 'w-64' : 'w-[68px]'
-      } bg-white text-black z-30 transition-all duration-300`}
+      } bg-red-800 text-white z-30 transition-all duration-300`}
     >
-      <div className='relative h-full flex flex-col justify-between overflow-hidden'>
+      <div className='relative bg-red-800 h-full flex flex-col justify-between overflow-hidden'>
         <div className=' p-4 w-full'>
           <ShadcnButton
             onClick={toggleSidebar}

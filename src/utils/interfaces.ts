@@ -16,4 +16,5 @@ export interface Item {
   icon: ElementType;
   href: string;
   text: string;
+  isAlwaysVisible?: boolean;
 }
