@@ -33,7 +33,7 @@ const Main = <T extends { id: number; name: string; youtube: string }>({
 
   return (
     <main className='flex justify-center items-center min-h-screen bg-red-900 bg-transparent h-full w-full p-12'>
-      <section className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 container'>
+      <section className='flex flex-wrap justify-center gap-6 container'>
         {items.map((item, index) => (
           <AdventCard
             key={item.id}

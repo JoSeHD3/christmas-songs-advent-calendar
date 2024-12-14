@@ -54,7 +54,10 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
   }, [index, storageKey]);
 
   return (
-    <div className='group flex w-full h-48' onClick={handleClick}>
+    <div
+      className='group flex w-full md:w-2/5 lg:w-[29%] xl:w-1/5 h-48'
+      onClick={handleClick}
+    >
       <div
         className={`relative w-full h-full transition-transform duration-500 transform ${
           isRevealed && isUnlocked ? '[transform:rotateY(180deg)]' : ''
@@ -70,7 +73,7 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
         {/* Back Side of the Card */}
         <div
           className={cn(
-            'absolute w-full h-full bg-red-800/100 text-white flex flex-col items-center justify-center rounded-lg [transform:rotateY(180deg)] z-20',
+            'absolute w-full h-full bg-red-800/100 text-white text-pretty text-center flex flex-col items-center justify-center rounded-lg [transform:rotateY(180deg)] z-20',
             !backfaceFlag && '[backface-visibility:hidden]'
           )}
         >
@@ -84,7 +87,7 @@ const AdventCard = <T extends { id: number; name: string; youtube: string }>({
               src={`https://www.youtube.com/embed/${new URL(item.youtube).searchParams.get('v')}`}
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen
-            ></iframe>
+            />
           )}
         </div>
       </div>
