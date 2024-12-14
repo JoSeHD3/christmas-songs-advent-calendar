@@ -13,7 +13,10 @@ const SidebarItem = ({
   text: string;
 }) => {
   const { isExpanded } = useSidebarStore();
-  const styling = cn('w-full flex p-2 rounded mt-4', isExpanded && 'p-[10px]');
+  const styling = cn(
+    'w-full flex p-[10px] rounded mt-4 justify-start',
+    isExpanded && 'p-[10px]'
+  );
 
   return (
     <ShadcnButton
